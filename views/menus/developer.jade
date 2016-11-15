@@ -1,0 +1,45 @@
+.navbar.navbar-default.navbar-fixed-top(role='navigation')
+    .container
+        .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.navbar-brand(href='#') Metis
+        .navbar-collapse.collapse
+            ul.nav.navbar-nav
+                li.menu-item.dropdown#mnuAllReqs
+                    a.dropdown-toggle(href='#',data-toggle="dropdown",role="button",aria-haspopup="true",aria-expanded="false") 
+                        span Solicitações
+                        span.caret 
+                        ul.dropdown-menu
+                            li.menu-item
+                                a(href='/reqs') Todas
+                            li.menu-item
+                                a(href='#about') Projetos
+                            li.menu-item
+                                a(href='#about') Suportes
+                            li.menu-item
+                                a(href='#about') Melhorias
+                            li.divider(role="separator")
+                            li.menu-item
+                                a(href='#about') Correções
+                            li.menu-item
+                                a(href='#about') Defeitos
+                            li.divider(role="separator")
+                            li.menu-item
+                                a(href='#about') Consultar
+                li.menu-item
+                    a(href='#about') Meus Projetos
+                li.menu-item
+                    a(href='#contact') Minhas Horas
+                li.menu-item
+                    a(href='#contact') Módulos do Sistema 
+                li.menu-item#mnuConfig
+                    a(href='/config') Config.
+                
+            ul.nav.navbar-nav.navbar-right
+                li.menu-item.off
+                    a(href='/login') Sair
+                        

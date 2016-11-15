@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+    
+    script(src='/javascripts/reqs.js')
+    
+    h1 Todas as Solicitações <a class="glyphicon glyphicon-plus pointer" href="/reqs/new" title="Adicionar Solicitação" data-toggle="tooltip"></a>
+    if(reqs.length>0)
+        table.table.table-hover
+            thead
+                tr
+                    th 
+                    th Título
+                    th Respostas
+                    th Visitas
+                    th Modificado Em
+            tbody
+                - each req, i in reqs
+                    tr
+                        td 
+                            input.chkSelect(type="checkbox")
+                            input.inputId(type="hidden" value="#{req._id}")
+                        td 
+                            a(href='/reqs/#{req._id}') #{req.title}
+                        td #{req.forum.length}
+                        td #{req.visits}
+                        td 
+                            span.dateTimeField #{req.modified}
+        button.btn.btn-danger.btn-remove#btnSubmit(type="submit") Remover
+    else
+        h3 Nenhuma solicitação encontrada!
+    
+    

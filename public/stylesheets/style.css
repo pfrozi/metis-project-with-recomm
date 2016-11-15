@@ -1,0 +1,63 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.text-danger{
+    margin-left:5px;
+}
+
+.menu-item{
+    text-align: center;
+    font-family: "Open Sans";
+    font-weight: 600;
+    font-size: 16px;
+    color: #00B7FF;
+}
+.menu-item.off{
+    background-color: #FFAAAA;
+
+}
+
+.bootstrap-tagsinput {
+    width: 100%;
+}
+
+.pointer {
+    cursor: pointer;
+}
+.btn-remove{
+    margin-bottom: 1em;
+}
+.type-tag{
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+}
+.pointer-plus{
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+}
+
+/*
+    Use the code below to animate the dropdown-menu
+    WARNING: This option has a issue on responsive mode
+*/
+/*
+.dropdown .dropdown-menu{
+    display: block;
+    opacity: 0;
+
+    -moz-transition:    all 400ms ease-out;
+    -webkit-transition: all 400ms ease-out;
+    -o-transition:      all 400ms ease-out;
+    -ms-transition:     all 400ms ease-out;
+    transition:         all 400ms ease-out;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+}
+*/

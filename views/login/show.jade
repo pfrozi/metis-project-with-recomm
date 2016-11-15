@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/signin.css')
+    link(rel='stylesheet', href='/stylesheets/box-with-shadows.css')
+    div.container
+        div.drop-shadow.lifted.rotated
+            h2.text-primary 
+                i Metis Project
+    div.container
+        form.form-signin#formLogin(name="frmlogin",method="post",action="/login")
+            h2.form-signin-heading.text-center Bem-Vindos!
+            label.sr-only(for="inputNick") Usuário:
+            if oldNick
+                input.form-control#inputNick(type="text", placeholder="Ex. pfrozi", name="nick", value="#{oldNick}",required, autofocus)
+            else
+                input.form-control#inputNick(type="text", placeholder="Ex. pfrozi", name="nick",required, autofocus)
+            label.sr-only(for="inputPass") Senha: 
+            input.form-control#inputPass(type="password", placeholder="Sua senha", name="password", required)
+            p
+                button.btn.btn-lg.btn-primary.btn-block#btnSubmit(type="submit") Entrar
+            
+            if message
+                <div class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                span.text-danger #{message}
+                </div>
+            
+        
+
+        

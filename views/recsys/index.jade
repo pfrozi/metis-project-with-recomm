@@ -1,0 +1,50 @@
+extends ../layout
+
+block content
+    
+    script(src='/javascripts/recsys.js')
+    
+    <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+    
+    </div>
+    </div>
+    
+    if(stopwords.length>0)
+        div.col-xs-4
+            button.btn.btn-success#btnProcessTerms Gerar Termos
+            h2 StopWords
+            table.table.table-hover
+                thead
+                    tr
+                        th Indice
+                        th Word
+                tbody
+                    - each stopword, i in stopwords
+                        tr
+                            td #{i}
+                            td 
+                                span #{stopword.stopword}
+    else
+        h3 Nenhum stopword encontrado!
+    
+    if(terms && terms.length>0)
+        div.col-xs-4
+            button.btn.btn-success#btnProcessFreqs Gerar Frequencias
+            table.table.table-hover
+                thead
+                    tr
+                        th Indice
+                        th Termo
+                tbody
+                    - each term, i in terms
+                        tr
+                            td #{i}
+                            td 
+                                span #{term.word}
+        div.col-xs-4
+            button.btn.btn-success#btnEuclidianDist Distancia Euclidiana
+    else
+        h3 Nenhum termo gerado!
+
+    

@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+    
+    h3.
+        Alterar Usuário    
+        
+    form#formAddUser(name="upuser",method="post",action="/users/#{user._id}/edit",enctype='application/x-www-form-urlencoded')
+        div.form-group.col-xs-6
+            label.control-label(for="titulo") Tipo
+            select.form-control#optCategorias(name="type")
+                if(user.type=="C")
+                    option(value="C",selected) Cliente
+                else
+                    option(value="C") Cliente
+                if(user.type=="D")
+                    option(value="D",selected) Desenvolvedor
+                else
+                    option(value="D") Desenvolvedor
+                
+            
+            label.control-label(for="Nome") Nome
+            input.form-control#inputName(value="#{user.name}", type="text", placeholder="Ex.: Joaozinho Souza", name="name", required, autofocus)
+            label.control-label(for="nick") Nick
+            input.form-control#inputDescr(value="#{user.nick}", type="text", placeholder="Ex.: jsouza", name="nick", required, autofocus)
+            label.control-label(for="password") Senha
+            input.form-control#inputDescr(value="#{user.password}", type="password", placeholder="Digite a sua senha", name="password", required, autofocus)
+            br
+            br
+            p.text-right
+                input(type='hidden',value='PUT',name='_method')
+                button.btn.btn-lg.btn-primary#btnSubmit(type="submit") Alterar

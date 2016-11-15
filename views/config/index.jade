@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+
+    script(src='/javascripts/config.js')
+    
+    h1 Configurações
+    
+    div.bs-glyphicons
+        ul.bs-glyphicons-list
+            li.pointer.users-link
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <span class="glyphicon-class">Editar Usuários</span>
+            li.pointer.recsys-link
+                <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+                <span class="glyphicon-class">Treinar Recomendações</span>

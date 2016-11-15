@@ -1,0 +1,31 @@
+extends ../layout
+block content
+    
+    script(src='/javascripts/reqs-new.js')
+    
+    h1 Adicionar Solicitação
+    p
+        form.form-horizontal.multiple-form-group#formAddReq(name="addreq",method="post",action="/reqs")
+            div.form-group.col-xs-6
+                
+                
+                label.control-label(for="titulo") Categoria
+                select.form-control#optCategorias(name="categoria")
+                    option(value="S") Suporte
+                    option(value="M") Melhoria
+                    option(value="C") Correção
+                    
+                label.control-label(for="titulo") Título
+                input.form-control#inputTitulo(type="text", placeholder="Ex. Comissões de Novembro", name="titulo", required, autofocus)
+                label.control-label(for="descricao") Descrição
+                textarea.form-control#inputDescr(type="textarea", rows="8", placeholder="Coloque aqui o detalhamento desta solicitação", name="descricao", required, autofocus)
+                
+                label.control-label(for="tags") Tags
+                <input type="text" name="tags" class="form-control" value="" data-role="tagsinput" />
+                
+                label.control-label(for="modulos") Módulos
+                <input type="text" name="modulos" class="form-control" value="" data-role="tagsinput" />
+                br
+                br
+                p.text-right
+                    button.btn.btn-lg.btn-primary#btnSubmit(type="submit") Incluir!

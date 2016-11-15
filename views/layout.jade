@@ -1,0 +1,31 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+        //link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
+        link(rel='stylesheet', href='/stylesheets/docs.min.css')
+        
+        link(rel='stylesheet', href='/stylesheets/bootstrap-tagsinput.css')
+        link(rel='stylesheet', href='/stylesheets/sticky-footer.css')    
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        
+            
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+        script(src='/bootstrap/js/bootstrap.min.js')
+        script(src='/javascripts/bootstrap-tagsinput.min.js')
+        script(src='/javascripts/core.js')
+    body
+        footer.footer
+            div.container.text-left
+                p
+                if (userLog)
+                    p.text.muted.credit.small Olá #{userLog.name}!
+        if(userLog)
+            case userLog.type
+                when 'D'
+                    include menus/developer
+                when 'C'
+                    include menus/customer
+        block content
+        

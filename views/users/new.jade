@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    
+    h1.
+        Adicionar Usuário
+    form#formAddUser(name="adduser",method="post",action="/users")
+        div.form-group.col-xs-6
+            label.control-label(for="titulo") Tipo
+            select.form-control#optCategorias(name="type")
+                option(value="C") Cliente
+                option(value="D") Desenvolvedor
+                
+            label.control-label(for="Nome") Nome
+            input.form-control#inputName(type="text", placeholder="Ex.: Joaozinho Souza", name="name", required, autofocus)
+            label.control-label(for="nick") Nick
+            input.form-control#inputDescr(type="text", placeholder="Ex.: jsouza", name="nick", required, autofocus)
+            label.control-label(for="password") Senha
+            input.form-control#inputDescr(type="password", placeholder="Digite a sua senha", name="password", required, autofocus)
+            br
+            br
+            p.text-right
+                button.btn.btn-lg.btn-primary#btnSubmit(type="submit") Incluir!

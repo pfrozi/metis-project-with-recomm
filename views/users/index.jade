@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+    
+    h1 Usuários do Sistema <a class="glyphicon glyphicon-plus pointer" href="/users/new" title="Adicionar Usuário" data-toggle="tooltip"></a>
+    if(users.length>0)
+        table.table.table-hover
+            thead
+                tr
+                    th 
+                    th Nick
+                    th Tipo
+                    th Nome
+                    th Criado Em
+            tbody
+                - each user, i in users
+                    tr
+                        td 
+                            input.chkSelect(type="checkbox")
+                            input.inputId(type="hidden" value="#{user._id}")
+                        td 
+                            a(href='/users/#{user._id}/edit')  #{user.nick}
+                        td
+                            -if(user.type=="D")
+                                span Desenvolvedor
+                            -else
+                                span Cliente
+                        td 
+                            span #{user.name}
+                        td 
+                            span.dateTimeField #{user.created}
+        button.btn.btn-danger.btn-remove#btnSubmit(type="submit") Remover
+    else
+        h3 Nenhum usuário encontrado!

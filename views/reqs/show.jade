@@ -1,0 +1,102 @@
+extends ../layout
+
+block content
+    
+    script(src='/javascripts/reqs.js')
+    
+    h2 Detalhamento da Solicitação
+    
+    hr
+    
+    i.text-primary Visitas  
+    span.badge #{req.visits}
+    
+    div.row
+        div.col-xs-12.col-md-8
+            h3 #{req.title}
+            p 
+                - each tag, i in req.tags
+                    span.type-tag.label.label-primary #{tag}
+        div.col-xs-6.col-md-4
+            i
+                span Modificado em 
+                span.dateTimeField #{req.modified}
+    br
+    div.row
+        div.container.text-justify
+            p #{req.description}
+    br
+    div.row
+        div.col-xs-12.col-md-8
+            p 
+                i
+                    b Módulos: 
+                - each module, i in req.modules
+                    span.type-tag.label.label-info #{module}
+        div.col-xs-6.col-md-4
+            i
+                span Criado em 
+                span.dateTimeField #{req.created}
+                span  por #{req.user.nick}
+    hr
+    i.text-primary Respostas  
+    span.badge #{req.forum.length}
+    <a id="addForum" class="glyphicon glyphicon-plus pointer pointer-plus" title="Adicionar Resposta" data-toggle="tooltip"></a>
+    
+    if(req.forum.length>0)
+        - each item, i in req.forum
+            hr
+            
+            div.row
+                div.col-xs-12.col-md-8
+                    p 
+                        - each tag, i in item.tags
+                            span.type-tag.label.label-primary #{tag}
+                div.col-xs-6.col-md-4
+                    i
+                        span Modificado em 
+                        span.dateTimeField #{item.modified}
+            br
+            div.row
+                div.container.text-justify
+                    p #{item.comment}
+            br
+            div.row
+                div.col-xs-12.col-md-8
+                div.col-xs-6.col-md-4
+                    i
+                        span Respondido em 
+                        span.dateTimeField #{item.created}
+                        span  por #{item.user.nick}
+            hr
+    
+    
+    
+    
+    
+    
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Adicionar Comentário</h4>
+    </div>
+    <div class="modal-body">
+    p
+        form.form-horizontal.multiple-form-group#formAddComment(name="addforum",method="post",action="/reqs/#{req._id}")
+            
+            label.control-label(for="comment") Comentário
+            textarea.form-control#inputComment(type="textarea", rows="8", placeholder="Coloque aqui o que você tem a dizer sobre isso", name="comment", required, autofocus)
+            
+            label.control-label(for="tags") Tags
+            <input type="text" name="tags" class="form-control" value="" data-role="tagsinput" />
+                
+    </div>
+    <div class="modal-footer">
+    p.text-right
+        button.btn.btn-lg.btn-primary#btnSubmitComment Comentar
+    </div>
+    </div>
+    </div>
+    </div>
